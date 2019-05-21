@@ -1,7 +1,7 @@
 # PRIMEIRO PROJETO COM REACT-NATIVE
 ## Testando a plataforma
 
-***[FIXO]: Istalar o app `expo` na play/app store no smartphone que deseja***
+***[FIXO]: Instalar o app `expo` na play/app store no smartphone que deseja***
 ***testar os apps sendo desenvolvidos com react-native***
 
 **O `Expo` é um conjunto de ferramentas que auxiliam no desenvolvimento**
