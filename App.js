@@ -3,34 +3,45 @@ import { StyleSheet, Text, View } from 'react-native';
 import Header from './src/components/Header';
 import axios from 'axios';
 
+// fluxo:
+// initial satate --> render() --> componentDidMount()
+// --> state = { people: [<pessoa1>...<pessoaN>] } --> render()
 
 export default class App extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        // Definindo um estado inicial do componente
+        this.state = {
+            people: []
+        };
+    }
+
+    // funcao chamada apos o componente estar pronto
+    componentDidMount() {
+
+        axios.get('https://randomuser.me/api/?nat=br&results=5')
+        .then(response => {
+            const results = response.data.results;
+            this.setState({
+                people: results // atualiza o estado inserindo os dados da
+                                // api `randomuser`
+            });
+        })
+    }
+
     renderList() {
-        // const names = [
-        //     'Ágatha Alves Zuege',
-        //     'Danieli Alves Zuege',
-        //     'Tiago Jasper Zuege'
-        // ]
+
+        const textElements = this.state.people.map(function (p) {
+            const first = p.name.first;
+            return <Text key={first}>{first}</Text>;
+        });
+
+        return textElements;
 
         // Usar keys em elementos de lista para que o react possa
-        // diferenciar os elementos. Mais em https://fb.me/react-warning-keys
-        // const textElements = names.map(function (name){
-        //     return <Text key={name}>{name}</Text>
-        // });
-
-        // return textElements;
-
-        // Retorna o primeiro nome do objeto `results` vindo da api `randomuser`
-        axios.get('https://randomuser.me/api/?nat=br&results=5').then(
-            function(response) {
-                const results = response.data.results;
-                const names = results.map(function (people) {
-                    return people.name.first;
-                });
-                console.log(names);
-            }
-        )
+        // diferenciar os elementos. Mais em https://fb.me/react-warning-keys        
 
     }
 
