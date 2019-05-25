@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Header from './src/components/Header';
+import PeopleList from './src/components/PeopleList';
 import axios from 'axios';
 
 // fluxo:
@@ -31,25 +32,11 @@ export default class App extends React.Component {
         })
     }
 
-    renderList() {
-
-        const textElements = this.state.people.map(function (p) {
-            const first = p.name.first;
-            return <Text key={first}>{first}</Text>;
-        });
-
-        return textElements;
-
-        // Usar keys em elementos de lista para que o react possa
-        // diferenciar os elementos. Mais em https://fb.me/react-warning-keys        
-
-    }
-
     render() {
         return (
             <View>
                 <Header title="Pessoas"/>
-                { this.renderList() }
+                <PeopleList people={this.state.people} />
             </View>
         );
     }
