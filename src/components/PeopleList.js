@@ -1,18 +1,13 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-
+import PeopleListItem from './PeopleListItem';
 
 /* Sem arrow function */
 const PeopleList = function(props) {
 
     const people = props.people;
-    const textElements = people.map(function (element) {
-        const firstName = element.name.first;
-        return (
-            <View key={ firstName } style={ styles.line }>
-                <Text style={styles.lineText}>{ firstName }</Text>
-            </View>
-        );
+    const items = people.map(function (p) {
+        return <PeopleListItem key={p.name.first} people={p}/>;
     });
 
     // Usar 'key' em elementos de lista para que o react possa
@@ -20,7 +15,7 @@ const PeopleList = function(props) {
 
     return (
         <View style={styles.container}>
-            { textElements }
+            { items }
         </View>
     )
 }
@@ -33,17 +28,6 @@ const PeopleList = function(props) {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#d0dcef'
-    },
-    line: {
-        height: 40,
-        borderBottomWidth: 1,
-        borderBottomColor: '#bbb',
-        alignItems: 'center',
-        flexDirection: 'row'
-    },
-    lineText: {
-        fontSize: 20,
-        paddingLeft: 15
     }
 });
 
