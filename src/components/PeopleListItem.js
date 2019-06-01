@@ -1,15 +1,26 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {capitalFirst } from '../util';
+// import capitalFirst from '../util/capitalizeFirst';
 
 const PeopleListItem = function (props) {
 
     const people = props.people;
-    const firstName = people.name.first;
-    const lastName = people.name.last;
+
+    /* Destruct */
+    const {title, first, last } = people.name;
+    // const firstName = people.name.first;
+    // const lastName = people.name.last;
 
     return (
         <View style={ styles.line }>
-            <Text style={styles.lineText}>{ firstName }</Text>
+            <Text style={styles.lineText}>
+                { 
+                    capitalFirst(title) + ' ' +
+                    capitalFirst(first) + ' ' +
+                    capitalFirst(last)
+                }
+            </Text>
         </View>
     );
 }
