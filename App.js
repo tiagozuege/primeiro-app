@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ActivityIndicator } from 'react-native';
 import Header from './src/components/Header';
 import PeopleList from './src/components/PeopleList';
 import axios from 'axios';
@@ -15,7 +15,8 @@ export default class App extends React.Component {
 
         // Definindo um estado inicial do componente
         this.state = {
-            people: []
+            people: [],
+            isLoadingPeople: true
         };
     }
 
@@ -26,19 +27,30 @@ export default class App extends React.Component {
         .then(response => {
             const results = response.data.results;
             this.setState({
-                people: results // atualiza o estado inserindo os dados da
+                people: results, // atualiza o estado inserindo os dados da
                                 // api `randomuser`
+                isLoadingPeople: false
             });
         })
     }
 
     render() {
-        return (
-            <View>
-                <Header title="Pessoas"/>
-                <PeopleList people={this.state.people} />
-            </View>
-        );
+        if (this.state.isLoadingPeople) {
+            return (
+                <View>
+                    <Header title="Pessoas"/>
+                    <ActivityIndicator size="large" />
+                </View>
+            )
+        }
+        else {
+            return (
+                <View>
+                    <Header title="Pessoas"/>
+                    <PeopleList people={this.state.people} />
+                </View>
+            );
+        }
     }
 }
 
