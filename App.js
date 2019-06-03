@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
+import { Text, View, ActivityIndicator, Button } from 'react-native';
 import Header from './src/components/Header';
 import PeopleList from './src/components/PeopleList';
 import axios from 'axios';
@@ -48,9 +48,14 @@ export default class App extends React.Component {
                 <View>
                     <Header title="Pessoas"/>
                     <PeopleList people={this.state.people} />
+                    <Button title="Atualizar (Not Working)" onPress={this.buttonAction} />
                 </View>
             );
         }
+    }
+
+    buttonAction = () => {
+        console.log("Btn pressed!");
     }
 }
 

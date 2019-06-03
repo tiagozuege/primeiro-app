@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import PeopleListItem from './PeopleListItem';
 
-/* Sem arrow function */
+
 const PeopleList = function(props) {
 
     const people = props.people;
