@@ -38,7 +38,6 @@ export default class PeoplePage extends React.Component {
         if (this.state.isLoadingPeople) {
             return (
                 <View>
-                    <Header title="Pessoas"/>
                     <ActivityIndicator size="large" />
                 </View>
             )
@@ -46,7 +45,6 @@ export default class PeoplePage extends React.Component {
         else {
             return (
                 <View>
-                    <Header title="Pessoas"/>
                     <PeopleList people={this.state.people} />
                 </View>
             );
