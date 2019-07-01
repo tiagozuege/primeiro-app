@@ -6,6 +6,7 @@ import {capitalFirst } from '../util';
 const PeopleListItem = function (props) {
 
     const people = props.people;
+    const avatar = {uri: people.picture.thumbnail};
 
     /* Destruct */
     const {title, first, last } = people.name;
@@ -14,10 +15,10 @@ const PeopleListItem = function (props) {
 
     return (
         <View style={ styles.line }>
-            <Image style={styles.avatar}  source={{ uri: people.picture.thumbnail}}/>
+            <Image style={styles.avatar}  source={avatar}/>
             <Text style={styles.lineText}>
                 { 
-                    capitalFirst(title) + ' ' +
+                    // capitalFirst(title) + ' ' +
                     capitalFirst(first) + ' ' +
                     capitalFirst(last)
                 }
