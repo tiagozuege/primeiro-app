@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {capitalFirst } from '../util';
 // import capitalFirst from '../util/capitalizeFirst';
 
@@ -14,16 +14,18 @@ const PeopleListItem = function (props) {
     // const lastName = people.name.last;
 
     return (
-        <View style={ styles.line }>
-            <Image style={styles.avatar}  source={avatar}/>
-            <Text style={styles.lineText}>
-                { 
-                    // capitalFirst(title) + ' ' +
-                    capitalFirst(first) + ' ' +
-                    capitalFirst(last)
-                }
-            </Text>
-        </View>
+        <TouchableOpacity onPress={() => console.log("Toquei na pessoa!")}>
+            <View style={ styles.line }>
+                <Image style={styles.avatar}  source={avatar}/>
+                <Text style={styles.lineText}>
+                    { 
+                        // capitalFirst(title) + ' ' +
+                        capitalFirst(first) + ' ' +
+                        capitalFirst(last)
+                    }
+                </Text>
+            </View>
+        </TouchableOpacity>
     );
 }
 
