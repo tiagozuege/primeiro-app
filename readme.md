@@ -32,9 +32,10 @@
 * Caso não tiver o `yarn` usar `expo init`
 
 ## UTILIZANDO EMULADOR ANDROID
+
 Para rodar o app no emulador, seguir os seguintes passos:
-1 - Instalar um AVD (Android Virtual Device) utilizando o Android Studio (ver docs)
-2 - Colocar no path do sistema (Windows): `%localappdata%/Android/Sdk/platform-tools` e `%localappdata%/Android/Sdk/emulator`
-3 - Executar o emulador utilizando o comando `emulator -avd NOME_DO_AVD`
-4 - Verificar se o ADB está rodando e se o emulador está conectado executando o comando `adb devices`
-5 - Se estiver tudo OK, basta estar no diretório do projeto e executar o comando `yarn run android`
+* Instalar um AVD (Android Virtual Device) utilizando o Android Studio (ver docs)
+* Colocar no path do sistema (Windows): `%localappdata%/Android/Sdk/platform-tools` e `%localappdata%/Android/Sdk/emulator`
+* Executar o emulador utilizando o comando `emulator -avd NOME_DO_AVD`
+* Verificar se o ADB está rodando e se o emulador está conectado executando o comando `adb devices`
+* Se estiver tudo OK, basta estar no diretório do projeto e executar o comando `yarn run android`
